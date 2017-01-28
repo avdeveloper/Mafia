@@ -2,17 +2,17 @@ var webpack = require('webpack');
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var WebpackDevServer = require("webpack-dev-server");
+var url = "http://0.0.0.0:3000";
 
 
 var BUILD_DIR = path.resolve(__dirname, 'src/client/public');
-var APP_DIR = path.resolve(__dirname, 'src/client/app');
+var APP_DIR = path.resolve(__dirname, 'src/app');
 
 var config = {
   entry: [
-  'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
-  'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
-  'webpack-hot-middleware/client',
-  APP_DIR + '/index.jsx' // Your appʼs entry point
+      'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
+      'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+  path.resolve(APP_DIR, 'index.jsx') // Your appʼs entry point
 ],
   output: {
     path: BUILD_DIR,
@@ -52,7 +52,17 @@ var config = {
  plugins: [
     new ExtractTextPlugin('styles.css'),
     new webpack.HotModuleReplacementPlugin()
- ]
+ ],
+devServer: {
+    contentBase: path.resolve(__dirname, 'src/client/'),
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    progress: true,
+    stats: 'errors-only',
+    host: url.match(/\/\/([\w.-]+)/)[1],
+    port: url.match(/:(\d{4})\/?/)[1]
+}
     
     
 };
