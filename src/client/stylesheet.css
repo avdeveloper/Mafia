@@ -1,0 +1,47 @@
+.button {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: white;
+    font-size: 15px;
+    border : 1px solid #C0C0C0 ;
+    border-radius: 4px;
+    padding: 10px 5px;
+    width: 15%;
+    
+}
+.center{
+    margin:auto;
+    
+}
+
+.button:hover {
+    border : 1px solid black ;
+    border-radius: 4px;
+}
+
+.Names {
+    padding: 5px;
+    font-size: 25px;
+    width: 40%;
+}
+
+
+.Narrator {
+    padding: 1px;
+    font-size: 20px;
+    width: 18%;
+}
+
+
+.Dead {
+    background-color: #AE0D11;
+}
+
+.Impact {
+    font-family: 'Impact';
+    color : black;
+    font-size : 35px;
+}
+
+.red {
+    color:#AE0D11;
+}
